@@ -1,1 +1,1 @@
-/Users/vanchi/.vim/vim-pathogen/autoload/pathogen.vim
+../vim-pathogen/autoload/pathogen.vim
