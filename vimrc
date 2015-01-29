@@ -17,7 +17,7 @@ colorscheme default
 " colorscheme morning
 filetype plugin indent on
 " Enable mouse
-"set mouse=a
+set mouse=a
 
 
 " Make backspace work normally in insert mode
@@ -92,7 +92,8 @@ let g:CodeReviewer_reviewFile=$HOME . "/review.rev"
 
 "Nerdtree
 nmap <leader>n :NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup = 0
+let g:nerdtree_tabs_open_on_gui_startup = 0
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=darkred guibg=#382424
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -125,3 +126,12 @@ let g:vim_markdown_no_default_key_mappings=1
 
 "match def/end do/end
 runtime macros/matchit.vim
+
+"eliminate blanks on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+"replace with word under cursor
+:nmap <leader>G  :Ggrep <c-r>=expand("<cword>")<cr><CR>
+
+"type '%%' for the path of the working file
+cabbr %% <C-R>=expand('%:p:h')<CR>
